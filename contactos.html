@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - Mic.Mas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> 
+    
+    <style>
+        /* ========================================================== */
+        /* SOLUCIONES ANTI-SCROLL HORIZONTAL (MÓVIL) */
+        /* ========================================================== */
+        * {
+            box-sizing: border-box; /* Fundamental: evita que padding/border causen desbordamiento */
+        }
+        body {
+            overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+            width: 100%;
+        }
+        .container {
+            padding: 0 15px; /* Asegura un pequeño margen en los lados de la pantalla */
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* ========================================================== */
+        /* ESTILOS DE NAVEGACIÓN Y BOTONES */
+        /* ========================================================== */
+        .indice-botones a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #bf930c; 
+            color: #ffffff; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .indice-botones a[href="Contactos.html"] {
+            background-color: #3d3827; 
+            cursor: default;
+        }
+
+        .indice-botones a:hover {
+            background-color: #373017;
+        }
+
+        /* Estilos de Botón de WhatsApp - Unificados y compactos */
+        .boton-tarjeta-whatsapp, 
+        .contact-form .btn { 
+            display: flex; /* Mantenido para alinear ícono y texto */
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            padding: 5px 10px;
+            margin-top: 5%;
+            background-color: #bf930c;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-align: center; 
+            border: none; 
+            cursor: pointer; 
+        }
+
+        .boton-tarjeta-whatsapp:hover,
+        .contact-form .btn:hover {
+            background-color: #a07d08;
+        }
+
+        .boton-tarjeta-whatsapp img {
+            display: block; 
+        }
+        
+        /* ========================================================== */
+        /* ESTILOS DE SECCIONES GENERALES */
+        /* ========================================================== */
+        .hero {
+            background: linear-gradient(rgba(119, 119, 119, 0.6), rgba(182, 178, 178, 0.6)), url('img/Sin\sa\ de\ trabajo\ 1.png') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Estilos del Footer */
+        footer {
+            background-image: url('img/LOGOS/PIE\ DE\ PAGINA-30.png');
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            width: 100%; 
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        
+        .footer-contact, .footer-social {
+            flex-basis: 45%; 
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+        }
+        .footer-contact img {
+            margin-right: 10px;
+        }
+        .qr-code {
+            width: 120px;
+            height: auto;
+        }
+
+/* ESTILOS CSS DEL MAPA: Asegura la responsividad */
+.mapa-container {
+    /* Mantiene el mapa dentro de los límites del contenedor principal */
+    width: 100%; 
+    /* Añade espacio vertical para separar el mapa del resto del contenido */
+    margin-top: 40px; 
+    margin-bottom: 20px;
+}
+
+        /* Estilos para el GRID de Contacto: Eliminada la división en dos columnas */
+        .contact-grid {
+            /* Se ha eliminado 'display: flex;' y 'justify-content: space-between;' */
+            gap: 40px;
+            display: block; /* Asegura el apilamiento vertical */
+        }
+        
+        .contact-info, .contact-form {
+            /* Se ha eliminado 'flex: 1;' */
+            width: 100%; /* Ahora ocupan el ancho completo */
+            margin-bottom: 40px; /* Añade espacio entre la sección de info y el formulario */
+        }
+        
+        /* ========================================================== */
+        /* MEDIA QUERIES (YA NO SON NECESARIAS PARA DESAPILAR) */
+        /* ========================================================== */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                padding: 20px 10px; 
+            }
+            .footer-contact, .footer-social {
+                flex-basis: 100%;
+                width: 100%;
+            }
+            /* La siguiente regla se podría quitar, pero la dejamos para consistencia: */
+            .contact-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <img src="img/LOGOS/logo micmas (1)_Mesa de trabajo 1 (1).png" width="120" height="60" alt="Logo Micmas">
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li> <a href="index.html" style="color: #ffffff;">Inicio</a></li>
+                    <li><a href="productos.html" style="color: rgb(255, 255, 255);">Productos</a></li>
+                    <li><a href="entregas.html" style="color: rgb(255, 255, 255);">Entregas</a></li>
+                    <li><a href="contactos.html" style="color: rgb(255, 255, 255);" >Contactos</a></li>
+                    <li><a href="promociones.html" style="color: rgb(255, 254, 253);">Promociones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contactos" class="section-info">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">Estamos listos para ayudarte con tu próximo proyecto.</p>
+                
+                <div class="contact-grid">
+                    
+                    <div class="contact-info">
+                        
+                       
+                        <a href="https://wa.me/50237498681" target="_blank" class="boton-tarjeta-whatsapp"><img src="img/REDES SOCIALES/iconos-29.png"  width="40"  height="40">
+                    WhatsApp
+                        </a>
+
+
+
+
+
+
+                        <a href="mailto:micmasdetail@gmial.com" target="_blank" class="boton-tarjeta-whatsapp"><img src="img/REDES SOCIALES/iconos-36.png" width="40" height="40">
+                             Correo 
+                        </a>
+
+
+
+                        
+
+
+                        <a href="https://www.instagram.com/micmasdetail?igsh=bmdmemc4eDF1N3Iz" target="_blank" class="boton-tarjeta-whatsapp"><img src="img/REDES SOCIALES/iconos-32.png" width="40" height="40">
+                 
+                             Instagram 
+                    
+                        </a>
+                        
+
+      
+<br>
+
+    
+                        <div class="mapa-container">
+                            <h2 class="section-title">Nuestra ubicación</h2>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.3895687700597!2d-90.50928669999999!3d14.633813999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a31d9c4c2cd5%3A0x47f767ec5d2ad55c!2smicmas.customdetail!5e0!3m2!1ses-419!2sgt!4v1761067994351!5m2!1ses-419!2sgt" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0; border-radius: 8px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div> 
+                        <a href="https://maps.app.goo.gl/MG3SAPmiVUFRzFmX6" target="_blank" class="boton-tarjeta-whatsapp"><img src="img/REDES SOCIALES/iconos-31.png" width="40" height="40">
+                 
+                             Ubicacion 
+                    
+                        </a>
+                        <br> 
+                        <h3>11 Avenida 14-10, Cdad. de Guatemala, Guatemala</h3>
+                    </div>
+                   
+
+<br><br><br>
+
+                 <div class="contact-form">
+                    <h2 class="section-title">Envíanos un mensaje</h2>
+                    <p class="section-subtitle"></p>
+ 
+    <form id="contactForm">
+        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
+        <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
+        <textarea id="mensaje" name="mensaje" placeholder="Tu Mensaje" required></textarea>
+        
+        <button type="button" class="btn" onclick="sendWhatsApp()">
+            Enviar Mensaje 
+        </button>
+    </form>
+</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+   
+                <div class="footer-contact">
+                    <h3 style="color: #bf930c;">Contáctanos</h3>
+                    <div class="contact-items-wrapper">
+                        <div class="contact-item">
+                            <img src="img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
+                            <div class="contact-text">
+                                <h4>Whatsapp</h4>
+                                <h6>5808 - 5010</h6>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <img src="img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
+                            <div class="contact-text">
+                                <h4>Teléfono</h4>
+                                <h6>3749 - 8681</h6>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <img src="img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
+                            <div class="contact-text">
+                                <h4>Instagram</h4>
+                                <h6>micmasdetail</h6>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <img src="img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
+                            <div class="contact-text">
+                                <p>11 Avenida</p>
+                                <p> 14-10 z1.</p>
+                                <p> Guatemala</p>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

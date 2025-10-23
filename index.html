@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+
+   <style>
+        .indice-botones a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #bf930c; 
+            color: #ffffff; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Estilo para resaltar la pestaña actual  a07d08*/
+        .indice-botones a[href="Pachones.html"] {
+            background-color: #3d3827; 
+            cursor: default;
+        }
+
+        .indice-botones a:hover {
+            background-color: #373017;
+        }
+
+        .boton-tarjeta-whatsapp {
+            display: inline-block;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #bf930c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        /* Hero Section (Inicio) - Fondo de la animación */
+        .hero {
+            background: linear-gradient(rgba(119, 119, 119, 0.6), rgba(182, 178, 178, 0.6)), url('img/LOGOS/fachada_TAPAR-08.png') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .boton-tarjeta-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        /* Estilos del footer mejorados para una división clara */
+        /* no se sabe que parte de la img es url */
+        footer {
+            background-image: url('img/LOGOS/PIE\ DE\ PAGINA-30.png');
+            background-size: cover;
+            background-position: center;
+            color: white; /* Asegura que el texto sea legible */
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+            padding: 20px 0;
+        }
+        
+        .footer-contact, .footer-social {
+            flex-basis: 45%; /* Ocupa casi la mitad del espacio */
+            padding: 10px;
+            margin: 10px;
+            /* Asegura que los elementos se centren en su respectiva columna */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-contact, .footer-social {
+                flex-basis: 100%;
+            }
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+        }
+        .footer-contact img {
+            margin-right: 10px;
+        }
+        .qr-code {
+            width: 120px;
+            height: auto;
+        }
+
+
+        
+
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+
+    
+    <header>
+        <div class="container">
+         
+               <img src="img/LOGOS/logo micmas (1)_Mesa de trabajo 1 (1).png" width="120" height="60">
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li> <a href="index.html" style="color: #ffffff;">Inicio</a></li>
+                    <li><a href="productos.html" style="color: rgb(255, 255, 255);">Productos</a></li>
+                    <li><a href="entregas.html" style="color: rgb(255, 255, 255);">Entregas</a></li>
+                    <li><a href="contactos.html" style="color: rgb(255, 255, 255);" >Contactos</a></li>
+                    <li><a href="promociones.html" style="color: rgb(255, 255, 255);">Promociones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content" style="display: flex; flex-direction: column; align-items: center;">
+                    <!-- Contenedor de la animación -->
+                    <div class="animation-section">
+                        <div class="split-text-container">
+                            <span class="text-part left">
+                                <img src="img/Titulomic/logo micmas (1)-05.png" alt="Icono Izquierdo" class="animation-icon">
+                            </span>
+                            <span class="text-part right">
+                                <img src="img/Titulomic/logo micmas (1)-06.png" alt="Icono Derecho" class="animation-icon">
+                            </span>
+                        </div>
+                    </div>
+<br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+                    <!-- Textos descriptivos -->
+                    <div class="hero-texts" style="text-align: center; max-width: 800px;">
+                        <p style="color: rgb(238, 238, 238); font-weight: bold;">
+En Mic.Mas hacemos que tus ideas cobren vida con detalles personalizados y de calidad. Ya sea un regalo único o algo para promocionar tu marca, nuestra meta es tu satisfacción. También te ayudamos con el diseño: si tienes un logo lo adaptamos a tus productos, y si no, lo creamos desde cero para que sea 100% tuyo.                        </p>
+                     
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<br>
+
+
+
+<!-- Bloque de Tarjetas de Productos (Tarjetas pequeñas) -->
+<div class="card-grid">
+
+    <div style="width: 100%; text-align: center; margin-bottom: 0; margin-top: 20px;">
+        <h1 style="color:#bf930c">TECNICAS</h1>
+        <h4 style="color: rgb(0, 0, 0); font-weight: bold;">
+            Explora nuestras diversas técnicas de personalización  y descubre cómo podemos hacer tus proyectos brillar.
+        </h4>
+    </div>
+    <div class="product-card-container">
+        <div class="flip-card" id="card-1">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/TECNICAS/RECORTADOS/icono-18.png" alt="Grabado laser">
+                </div>
+                <div class="flip-card-back">
+                    
+                    <h5>Láser CO2 vaporiza madera y acrílico; el Diodo marca metales tratados. Ambos procesos crean un diseño permanente.
+
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <button class="small-button visible-button" data-target="card-1">Grabado laser</button>
+    </div>
+
+    <div class="product-card-container">
+        <div class="flip-card" id="card-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/TECNICAS/RECORTADOS/icono-19.png" alt="Tampografía">
+                </div>
+                <div class="flip-card-back">
+                    
+                    <h5>Transfiere tinta desde una placa grabada (cliché) a la superficie mediante una almohadilla de silicona flexible.
+
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <button class="small-button visible-button" data-target="card-2">Tampografìa</button>
+    </div>
+
+    <div class="product-card-container">
+        <div class="flip-card" id="card-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/TECNICAS/RECORTADOS/icono-20.png" alt="Resinado">
+                </div>
+                <div class="flip-card-back">
+                   
+                    <h5>Cubre una etiqueta impresa con una resina de poliuretano líquida para un efecto 3D y protector.
+
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <button class="small-button visible-button" data-target="card-3">Resinado</button>
+    </div>
+    
+    <div class="product-card-container">
+        <div class="flip-card" id="card-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/TECNICAS/RECORTADOS/icono-21.png" alt="DTF">
+                </div>
+                <div class="flip-card-back">
+               
+                    
+                    <h5>Imprime sobre una lámina plástica que luego se transfiere con calor a textiles, sin limitaciones de color.
+
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <button class="small-button visible-button" data-target="card-4">DTF</button>
+    </div>
+
+    <div class="product-card-container">
+        <div class="flip-card" id="card-5">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/TECNICAS/RECORTADOS/icono-22.png" alt="Sublimado">
+                </div>
+                <div class="flip-card-back">
+                    
+                    <h5>Una tinta especial pasa directamente de sólido a gas, tiñendo las fibras de poliéster de forma permanente.
+
+                    </h5>
+                </div>
+            </div>
+           
+        </div>
+        <button class="small-button visible-button" data-target="card-5">Sublimado</button>
+    </div>
+    
+</div>
+<!-- Fin del Bloque de Tarjetas de Productos -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<footer>
+    <div class="footer-contact">
+        <h3 style="color: #bf930c;">Contáctanos</h3>
+        <div class="contact-items-wrapper">
+            <!-- WhatsApp -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Whatsapp</h4>
+                    <h6>5808 - 5010</h6>
+                </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Teléfono</h4>
+                    <h6>3749 - 8681</h6>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Instagram</h4>
+                    <h6>micmasdetail</h6>
+                </div>
+            </div>
+
+            <!-- Ubicación -->
+
+
+                     <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <p>11 Avenida</p>
+                    <p> 14-10 z1.</p>
+                    <p> Guatemala</p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

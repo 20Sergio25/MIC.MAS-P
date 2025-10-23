@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas - Mic.Mas</title> 
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js" defer></script>
+    
+    <style>
+        /* ======================================================================= */
+        /* Estilos de Navegación y Botones (Mantenidos del original) */
+        /* ======================================================================= */
+        .indice-botones a {
+            display: inline-block; padding: 10px 15px; margin: 5px;
+            background-color: #bf930c; color: #ffffff; text-decoration: none;
+            border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;
+        }
+
+        .indice-botones a[href="entregas.html"] {
+            background-color: #3d3827; cursor: default;
+        }
+
+        .indice-botones a:hover {
+            background-color: #373017;
+        }
+
+        /* Botones de las tarjetas */
+        .small-button {
+            display: inline-block; padding: 10px; margin-top: 10px;
+            background-color: #bf930c; color: white; text-decoration: none;
+            border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;
+            border: none; /* Añadido para asegurar que se vea como botón */
+            cursor: pointer; /* Añadido para indicar que es interactivo */
+        }
+        
+        .small-button:hover {
+            background-color: #373017;
+        }
+
+
+        /* ======================================================================= */
+        /* CENTRADO Y CONTENEDORES DE TARJETAS (FLEXBOX) */
+        /* ======================================================================= */
+        .contenedor-tecnicas {
+            display: flex;             /* Habilita Flexbox */
+            justify-content: center;   /* Centra los elementos hijos (las tarjetas) */
+            flex-wrap: wrap;           
+            gap: 30px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Contenedor de cada tarjeta: Centra el botón (y el flip-card por margin: auto) */
+        .product-card-container {
+            width: 300px; 
+            text-align: center; /* CENTRA EL BOTÓN Y EL TEXTO */
+        }
+
+        /* ======================================================================= */
+        /* ESTILOS DE LA TARJETA DOBLE CARA (FLIP-CARD) */
+        /* ======================================================================= */
+        .flip-card {
+            background-color: transparent; 
+            width: 100%; 
+            height: 200px; 
+            perspective: 1000px;
+            margin: 0 auto 15px auto;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s; 
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; 
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 15px; box-sizing: border-box;
+        }
+        .flip-card-front {
+            background-color: #f1f1f1; color: black;
+        }
+        .flip-card-back {
+            background-color: #333; color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Gira la tarjeta entera al activar la clase 'flipped' */
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Estilo y animación de la imagen al voltear */
+        .flip-card-front img {
+            max-width: 100%; max-height: 100%;
+            transition: transform 0.6s ease-out; 
+        }
+
+        /* Gira la imagen 360 grados cuando la tarjeta se voltea */
+        .flip-card.flipped .flip-card-front img {
+            animation: spinImage 0.8s ease-in-out forwards;
+        }
+
+        @keyframes spinImage {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ======================================================================= */
+        /* ANIMACIÓN DEL CARRITO */
+        /* ======================================================================= */
+        .carrito-animado {
+            display: block; margin-left: auto; margin-right: auto;
+            animation: carritoCiclo 5s ease-in-out infinite; 
+            transform: translateX(-100%); opacity: 0; margin-top: 50px;
+        }
+
+      @keyframes carritoCiclo {
+    /* CORRECCIÓN: Usar -100vw para asegurar que empieza fuera del viewport */
+    0% { 
+        transform: translateX(-100vw); /* Empieza 100% FUERA del ancho de la pantalla (izquierda) */
+        opacity: 0; 
+    }
+    
+    /* El 20% es el punto donde el carrito se detiene y es visible.
+       Usamos 0 para que se centre (dado que tu CSS general lo centra). */
+    20% { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    
+    /* 80% es el final de la pausa */
+    80% { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    
+    /* 100% asegura que sale por la derecha */
+    100% { 
+        transform: translateX(100vw); /* Sale 100% FUERA del ancho de la pantalla (derecha) */
+        opacity: 0; 
+    }
+}
+        /* Estilos del footer (Recortados) */
+        footer {
+            background-image: url('img/1.ICONOGRAFIA/PIE\ DE\ PAGINA-30.png');
+            background-size: cover; background-position: center; color: white;
+        }
+        .footer-contact h3 { color: #bf930c; }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="img/LOGOS/logo micmas (1)_Mesa de trabajo 1 (1).png" width="120" height="60" alt="Logo Micmas">
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-list">
+                    <li> <a href="index.html" style="color: #ffffff;">Inicio</a></li>
+                    <li><a href="productos.html" style="color: rgb(255, 255, 255);">Productos</a></li>
+                    <li><a href="entregas.html" style="color: rgb(255, 255, 255);">Entregas</a></li>
+                    <li><a href="contactos.html" style="color: rgb(255, 255, 255);" >Contactos</a></li>
+                    <li><a href="promociones.html" style="color: rgb(255, 254, 253);">Promociones</a></li>
+                </ul>            
+            </nav>
+        </div>
+    </header>
+
+
+<main>
+    <section id="entregas" class="section-info">
+        <div class="container">
+            <h2 class="section-title">Nuestras Entregas</h2>
+            
+            <img class="carrito-animado" 
+                 src="img/REDES SOCIALES/iconos-16.png" 
+                 width="100" 
+                 height="100" 
+                 alt="Icono de Carrito de Compras">
+
+            <p class="section-subtitle">Conoce nuestras opciones de envío y entrega.</p>
+            <div class="info-content">
+                <p>En Mic.Mas, nos aseguramos de que tus pedidos lleguen de manera segura y eficiente. Ofrecemos diferentes opciones de entrega para adaptarnos a tus necesidades:</p>
+               
+                <div class="contenedor-tecnicas">
+ 
+                    <div class="product-card-container">
+                        <div class="flip-card" id="-1">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/LOGOS/logistica.png" alt="Grabado laser">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h2>Domicilio</h2>
+                                    <h5>Servicio de envío a todo el país. Los costos varían según la ubicación.</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="small-button visible-button" data-target="-1">Domicilio</button>
+                    </div>
+
+
+                    <div class="product-card-container">
+                        <div class="flip-card" id="-2">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/LOGOS/localizacion.png" alt="Erro de imagen, reportar al creador">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h2>Retiro en tienda</h2>
+                                    <h5>Puedes recoger tu pedido en nuestra dirección sin costo adicional.</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="small-button visible-button" data-target="-2">tienda</button>
+                    </div> 
+                    
+                </div> 
+                
+             
+            </div>
+        </div>
+    </section>
+</main>
+
+    
+
+
+
+
+<footer>
+    <div class="footer-contact">
+        <h3 style="color: #bf930c;">Contáctanos</h3>
+        <div class="contact-items-wrapper">
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Whatsapp</h4>
+                    <h6>5808 - 5010</h6>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Teléfono</h4>
+                    <h6>3749 - 8681</h6>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Instagram</h4>
+                    <h6>micmasdetail</h6>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <p>11 Avenida</p>
+                    <p> 14-10 z1.</p>
+                    <p> Guatemala</p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

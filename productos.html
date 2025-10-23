@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Mic.Mas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+ 
+    <style>
+      .indice-botones a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #bf930c; 
+            color: #ffffff; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Estilo para resaltar la pestaña actual  a07d08*/
+        .indice-botones a[href="productos.html"] {
+            background-color: #3d3827; 
+            cursor: default;
+        }
+
+        .indice-botones a:hover {
+            background-color: #373017;
+        }
+
+        .boton-tarjeta-whatsapp {
+            display: inline-block;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #bf930c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        
+        .boton-tarjeta-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        /* Estilos del footer mejorados para una división clara */
+        footer {
+            background-image: url('img/LOGOS/PIE\ DE\ PAGINA-30.png');
+            background-size: cover;
+            background-position: center;
+            color: white; /* Asegura que el texto sea legible */
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+            padding: 20px 0;
+        }
+        
+        .footer-contact, .footer-social {
+            flex-basis: 45%; /* Ocupa casi la mitad del espacio */
+            padding: 10px;
+            margin: 10px;
+            /* Asegura que los elementos se centren en su respectiva columna */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-contact, .footer-social {
+                flex-basis: 100%;
+            }
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+        }
+        .footer-contact img {
+            margin-right: 10px;
+        }
+        .qr-code {
+            width: 120px;
+            height: auto;
+        }
+        
+    </style>
+
+
+
+</head>
+<body>
+    <header>
+        <div class="container">
+               <img src="img/LOGOS/logo micmas (1)_Mesa de trabajo 1 (1).png" width="120" height="60">
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+             <ul class="nav-list">
+                    <li> <a href="index.html" style="color: #ffffff;">Inicio</a></li>
+                    <li><a href="productos.html" style="color: rgb(255, 255, 255);">Productos</a></li>
+                    <li><a href="entregas.html" style="color: rgb(255, 255, 255);">Entregas</a></li>
+                    <li><a href="contactos.html" style="color: rgb(255, 255, 255);" >Contactos</a></li>
+                    <li><a href="promociones.html" style="color: rgb(255, 254, 253);">Promociones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="productos" class="section-products">
+            <div class="container">
+                <h2 class="section-title">Nuestros Productos</h2>
+                <p class="section-subtitle">Explora nuestra variedad de artículos personalizados.</p>
+
+                <div class="product-category">
+                    <h3></h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="card-image">
+                                
+<a href="Sublimacion.html"><img src="img/SUBLIMACION/Gemini_Generated_Image_y4x2gpy4x2gpy4x2.png" alt="Sublimación" /></a>                            </div>
+                            <div class="card-content">
+                                <h4>Sublimacion</h4>
+                                <p>Envases, textil, llaveros, varios, portavasos, iman,Sombrillas,encuadernados</p>
+                            </div>
+                        </div>
+
+
+<!-- envases -->
+                        <div class="product-card">
+                            <div class="card-image">
+<a href="Envases.html"><img src="img/SUBLIMACION/Gemini_Generated_Image_fgwc8qfgwc8qfgwc.png" alt="Envases " /></a>                            </div>
+                            
+                            <div class="card-content">
+                                <h4>Envases</h4>
+                                <p>Pachones, Botellas, TazasVasos, Tazas, Termos .</p>
+                            </div>
+                        </div>
+
+<!--Lapiceros-->
+                        <div class="product-card">
+                            <div class="card-image">
+                                <a href="Lapicero.html"><img src="img/SUBLIMACION/Lapiceros.png " alt="Lapiceros"></a>
+                            </div>
+                            <div class="card-content">
+                                <h4>Lapiceros</h4>
+                                <p>Lapiceros</p>
+                            </div>
+                        </div>
+                                </div>
+                   
+    </main>
+                        <!-- Borrar-->
+                       
+
+<footer>
+    <div class="footer-contact">
+        <h3 style="color: #bf930c;">Contáctanos</h3>
+        <div class="contact-items-wrapper">
+            <!-- WhatsApp -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Whatsapp</h4>
+                    <h6>5808 - 5010</h6>
+                </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Teléfono</h4>
+                    <h6>3749 - 8681</h6>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Instagram</h4>
+                    <h6>micmasdetail</h6>
+                </div>
+            </div>
+
+            <!-- Ubicación -->
+
+
+                     <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <p>11 Avenida</p>
+                    <p> 14-10 z1.</p>
+                    <p> Guatemala</p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,898 @@
+/* Variables de color */
+:root {
+    --primary-color: #bf930c; /* Amarillo Oro (Definido para consistencia) */
+    --secondary-color: #36454F; /* Gris Azulado Oscuro */
+    --text-dark: #000000; /* Negro */
+    --text-light: #ffffff; /* Texto claro (Corregido a blanco para contraste en header) */
+    --bg-light: hsl(0, 0%, 100%); /* Blanco */
+    --bg-dark: #434B4D; /* Fondo navegar (Gris Oscuro) */
+}
+
+.centrada {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos iniciales para el carrito antes de la animación */
+.carrito-animado {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Aplicamos la animación cíclica */
+    /* animation: [nombre] [duracion total] [timing-function] [delay (opcional)] [iteration-count] [direction (opcional)] [fill-mode (opcional)]; */
+    animation: carritoCiclo 5s ease-in-out infinite; /* Duración total de un ciclo, repetición infinita */
+    
+    /* Establece la posición inicial antes del primer ciclo */
+    transform: translateX(-100%); 
+    opacity: 0;
+}
+
+@keyframes carritoCiclo {
+    /* 0% a 20%: Entra desde la izquierda y llega al centro */
+    0% {
+        transform: translateX(-600%); /* Comienza muy a la izquierda */
+        opacity: 0;
+    }
+    10% { /* Ajustado para que el fade-in sea más rápido */
+        opacity: 1; 
+    }
+    40% {
+        transform: translateX(0); /* Llega a la posición centrada (establecida por margin:auto) */
+        opacity: 1;
+    }
+
+    /* 20% a 80%: Permanece en el centro (pausa de 3 segundos) */
+    /* Como la duración total es 5s, 60% de 5s = 3s de pausa */
+    60% {
+        transform: translateX(0); /* Sigue en el centro */
+        opacity: 1;
+    }
+
+    /* 80% a 100%: Sale hacia la derecha y se vuelve invisible */
+    100% { /* Ajustado para que el fade-out sea más rápido */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(100vw); /* Sale completamente por la derecha (100% del ancho del viewport) */
+        opacity: 0;
+    }
+}
+
+/* PRUEBAS */
+
+/* Esto asegura que las imágenes se escalen dentro del contenedor */
+.animation-icon {
+    /* Define un tamaño fijo para los iconos */
+    width: 120px;  /* Ajusta este valor al tamaño que desees */
+    height: 120px; /* Ajusta este valor al tamaño que desees */
+    object-fit: contain; /* Asegura que la imagen completa se muestre sin recortar */
+    display: block; /* Opcional: Ayuda a la alineación */
+}
+
+/* Opcional: Ajustar el tamaño del contenedor principal */
+.split-text-container {
+    display: flex;
+    /* Puedes eliminar el font-size o mantenerlo pequeño, 
+       pero el tamaño de los iconos ahora lo define .animation-icon */
+    font-size: 1rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    overflow: hidden;
+}
+
+
+.card-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin:15px auto}.product-card-container{display:flex;flex-direction:column;align-items:center;width:150px}.flip-card{background-color:transparent;width:150px;height:150px;perspective:1000px}.flip-card-inner{position:relative;width:100%;height:100%;text-align:center;transition:transform .6s;transform-style:preserve-3d;box-shadow:0 2px 5px 0 rgba(0,0,0,.1);border-radius:8px}.flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}.flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:8px;display:flex;flex-direction:column;align-items:center;padding:5px;box-sizing:border-box}.flip-card-front{background-color:#f0f0f0}.flip-card-front img{width:100%;height:100%;object-fit:cover;border-radius:8px}.flip-card-back{background-color:#03030380;color:#fff;transform:rotateY(180deg);justify-content:center}.flip-card-back h1{font-size:14px;margin-bottom:3px}.flip-card-back p{font-size:10px;margin:3px 0;text-align:center}.small-button{padding:3px 6px;font-size:10px;cursor:pointer;background-color:#a07d08;color:#fff;border:1px solid gold;border-radius:4px;transition:background-color .3s;margin-top:8px}.small-button:hover{background-color:#ffd70033}
+
+/*fin de pruenas*/
+/* ⭐️ Contenedor principal de la cuadrícula ⭐️ */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px; /* Reducimos el espacio entre tarjetas  espacio*/
+    margin: 15px auto 80px;
+}
+
+/* ⭐️ Contenedor individual para AGARRAR la tarjeta y el botón ⭐️ */
+.product-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px; /* Ancho reducido */
+}
+
+/* 📏 Contenedor principal de la tarjeta (TAMAÑO REDUCIDO) 📏 */
+.flip-card {
+    background-color: transparent;
+    width: 150px; /* Ancho reducido */
+    height: 150px; /* Alto reducido */
+    perspective: 1000px;
+}
+
+/* El contenedor interno que será el que realmente gire */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1); /* Sombra más sutil */
+    border-radius: 8px; /* Bordes un poco más pequeños */
+}
+
+/* 🌀 EFECTO DE GIRO (se mantiene) 🌀 */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Posicionamiento y estilo básico para el frente y el dorso */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px; /* Reducimos el relleno */
+    box-sizing: border-box;
+}
+
+/* Estilos para el frente (la imagen) */
+.flip-card-front {
+    background-color: #f0f0f0;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    /* Cambiado a 'contain' para asegurar que el logo se vea completo sin distorsión */
+    object-fit: contain; 
+    border-radius: 8px;
+}
+
+/* Estilos para el dorso (el texto) */
+.flip-card-back {
+    background-color: #03030380; 
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: center;
+}
+
+/* Estilos de texto en el dorso (FUENTES REDUCIDAS) */
+.flip-card-back h1 {
+    font-size: 14px; /* Título más pequeño */
+    margin-bottom: 3px;
+}
+
+.flip-card-back p {
+    font-size: 10px; /* Párrafo más pequeño */
+    margin: 3px 0; 
+    text-align: center;
+}
+
+/* 🟡 Estilo para el botón de "Sublimación" (REDUCIDO) 🟡 */
+.small-button {
+    /* Tamaño y estilo */
+    padding: 3px 6px; /* Relleno más pequeño */
+    font-size: 17px; /* Fuente aumentada para mayor legibilidad */
+    cursor: pointer; /* Cambiado a pointer ya que tiene acción JS */
+    
+    /* Colores y Bordes */
+    background-color: #a07d08;
+    color: white;
+    border: 1px solid; /* Borde más fino */
+    border-color: gold; 
+    
+    /* Forma y Espaciado */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 8px; /* Espacio más pequeño entre la tarjeta y el botón */
+}
+
+/* Efecto al pasar el mouse por encima del botón */
+.small-button:hover {
+    background-color: #ffd70033;
+}
+/*otra prueba*/
+
+
+
+
+
+
+
+/* =================================== */
+/* BOTÓN DE WHATSAPP DENTRO DE LA TARJETA */
+/* =================================== */
+
+.boton-tarjeta-whatsapp {
+    /* Estilo del botón */
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    width: 100%; /* Ocupa el 100% del contenedor */
+    
+    margin-top: 15px; /* Espacio entre las especificaciones y el botón */
+    padding: 10px 0;
+    
+    background-color: #bf930c; /* Verde de WhatsApp */
+    color: #ffffff; /* Texto blanco */
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    /* Animaciones */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-tarjeta-whatsapp:hover {
+    background-color: #128C7E; /* Verde más oscuro al pasar el ratón */
+    transform: scale(1.02);
+}
+
+
+
+
+/* ❌ ELIMINADO/IGNORADO: ELIMINAMOS ESTE BLOQUE DE TU PRIMER CÓDIGO para evitar el conflicto:
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #121212;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+*/
+
+/* ------------------------------------------------ */
+/* 🔑 NUEVO CONTENEDOR PARA LA ANIMACIÓN (REEMPLAZA A 'body') */
+/* ------------------------------------------------ */
+.animation-section {
+    /* Estilos del body que tenías en el código de animación */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Usamos una altura fija o relativa, NO 100vh, para que se ajuste */
+    height: 200px; /* Ejemplo de altura, ajústala a lo que necesites */
+    width: 100%; /* Opcional, para que ocupe todo el ancho */
+    
+    margin: 20px 0; /* Margen para separarlo de otras secciones */
+    margin: 80px 0 20px 0; /* Aumentado el margen superior para bajar la animación */
+     /* Fondo de la animación, si lo quieres distinto al body principal */
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden; /* Importante para ocultar el texto antes de la animación */
+}
+
+.split-text-container {
+    display: flex;
+    /* 💥 MODIFICADO AQUÍ: Reducido de 5rem a 3rem para hacerlo más pequeño */
+    font-size: 3rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    overflow: hidden;
+}
+
+.text-part {
+    display: inline-block;
+    position: relative;
+    transform: translateX(0);
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.text-part.left {
+    transform: translateX(-200%);
+    animation-name: slide-in-left;
+}
+
+.text-part.right {
+    transform: translateX(200%);
+    animation-name: slide-in-right;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+
+
+/* ================================================= */
+/* NUEVOS ESTILOS DEL ÍNDICE: Botón + Icono Flotante */
+/* ================================================= */
+
+/* 1. Contenedor principal: organiza los botones en línea */
+.indice-botones {
+    display: flex;
+    justify-content: center; /* Centra los grupos de botones en la página */
+    gap: 30px; /* Espacio entre cada grupo de botón/imagen */
+}
+
+/* 2. Contenedor individual: clave para el posicionamiento absoluto */
+.categoria-item {
+    display: flex;
+    flex-direction: column; /* Apila el contenido (imagen y botón) */
+    align-items: center; /* Centra horizontalmente el botón y la imagen */
+    position: relative; /* ¡CLAVE! Permite posicionar la imagen en relación con este contenedor */
+    
+    /* Le damos espacio en la parte superior para que quepa la imagen flotante */
+    padding-top: 50px; 
+}
+
+/* 3. Estilo del Icono Flotante (La Imagen) */
+.icono-flotante {
+    /* 🔑 CLAVE: La sacamos del flujo normal y la posicionamos */
+    position: absolute; 
+    top: 0; /* Lo fija en la parte superior del contenedor .categoria-item */
+    
+    width: 50px; /* Tamaño del icono */
+    height: 50px;
+    object-fit: contain;
+    
+  
+    
+
+    
+    /* Centrar la imagen, ya que position:absolute no respeta align-items */
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+/* 4. Estilo de los Botones de Texto */
+/* Modifica esta regla en style.css */
+.indice-botones {
+    display: flex;
+    /* 🔑 CLAVE: Permite que los elementos salten a la siguiente línea */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    /* ¡Asegura que el contenedor no tenga un ancho fijo que impida el ajuste! */
+    max-width: 100%; 
+}
+.indice-botones a:hover {
+    background-color: #a07d08;
+    transform: translateY(-2px);
+}
+
+
+
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    /* Usa la variable de color primaria */
+    color: var(--primary-color); 
+}
+
+ul {
+    list-style: none;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header */
+header {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px #03030380;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    animation: fadeInDown 1s ease-out;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav .nav-list a {
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav .nav-list a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #FFFFFF;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .main-nav .nav-list {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-dark);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(252, 252, 252, 0.5);
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .main-nav .nav-list.active {
+        display: flex;
+    }
+
+    .main-nav .nav-list li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Hero Section (Inicio) */
+.hero {
+    background: linear-gradient(rgba(119, 119, 119, 0.6), rgba(182, 178, 178, 0.6)), URL('img/imagende\ fondo.jpeg') no-repeat center center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 100px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1.2s ease-out;
+}
+/* solución de código para texto inicial (comentario corregido) */
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.hero-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.979);
+}
+
+.btn:hover {
+    background: #E6B800;
+    transform: translateY(-5px);
+}
+
+.hero-image {
+    width: 300px;
+    height: 300px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Estilos generales de secciones */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 20px;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.section-products, .section-promos, .section-info {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.section-info {
+    background-color: #ffffff;
+}
+
+/* Estilos de las Tarjetas de Producto */
+.product-category h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin: 40px 0 20px;
+}
+
+.product-grid, .promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    animation: slideInUp 1s ease-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+
+/* ANULACIÓN DE ESTILOS PARA LA SECCIÓN DE ENVASES: Evita recorte y animación */
+/* Esto se aplica a la cuadrícula con clase 'envases-grid' */
+.envases-grid .card-image {
+    height: 250px; /* Altura un poco mayor para envases altos */
+}
+
+.envases-grid .card-image img {
+    object-fit: contain; /* Muestra la imagen COMPLETA (sin recorte) */
+    transition: none;
+}
+
+.envases-grid .product-card:hover .card-image img {
+    transform: none; /* Anula el zoom al hacer hover */
+}
+
+.envases-grid .product-card:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+
+/* Estilos para el Botón Flotante (Scroll-based) - UNIFICADO y CORREGIDO (AZUL y REDONDO) */
+.boton-flotante {
+    /* Fijo y Posicionamiento */
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px;
+    
+    /* Apariencia: COLOR AZUL y Redondo */
+    background-color: #bf930c; /* Color Azul */
+    padding: 10px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; /* Lo hace redondo */
+    
+    /* Centrado de la imagen */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+
+    /* Otros estilos */
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    z-index: 1000; 
+    cursor: pointer;
+    
+    /* Control de visibilidad por defecto (oculto) */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Transiciones suaves */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+
+/* Clase que se agrega con JavaScript para mostrarlo */
+.boton-flotante.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.boton-flotante:hover {
+    background-color: #ffffff; /* Azul más oscuro para hover */
+    transform: scale(1.05);
+}
+
+
+/* Contactos */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.contact-info h4, .contact-form h4 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+/* Footer */
+footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-contact h3, .footer-social h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+.qr-code {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para el nuevo footer de index.html */
+.contact-items-wrapper {
+    display: flex; /* Activa flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    gap: 15px; /* Espacio entre cada elemento de contacto */
+    width: 100%;
+    margin-top: 15px;
+    padding-left: 20px; /* Espacio a la izquierda para que no se pegue al borde */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-item.location-link {
+    flex-basis: 100%; /* Ocupa todo el ancho */
+}
+
+.contact-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-text p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    /* Ya no se necesita una regla específica para móvil, 
+       el diseño de columna funciona bien en todas las pantallas. */
+}
