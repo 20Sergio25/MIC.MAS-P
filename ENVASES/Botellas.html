@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../style.css"> 
     <script src="../script.js" defer></script>
     
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
+      /* Estilos de Botones y Footer (Sin Modificar) */
       .indice-botones a {
             display: inline-block;
             padding: 10px 15px;
@@ -133,8 +135,7 @@
             <div class="container">
                 <h2 class="section-title">BOTELLAS</h2> 
                 <p class="section-subtitle">Mira toda nuestra categoría de botellas</p>
-<!--editar y tener cuidado por los botones y eliminar boton por pagina nombrado-->
-               <div class="indice-botones" style="text-align: center; margin-bottom: 30px;">
+<div class="indice-botones" style="text-align: center; margin-bottom: 30px;">
     
    
 
@@ -175,88 +176,71 @@
     <h3 id="botellas" style="color: #000000; margin-top: 50px; text-align: center;"></h3>   
     <br>
     <br>
-             <div class="promo-grid envases-grid">
-<!--linea 73 codigo importante para imagen normal sin efecto css-->
+    
     <div class="promo-grid envases-grid">
-
-
-
-
-
- <div class="promo-grid envases-grid">
-                <!-- INICIO BOTELLA MINIMAL (Ejemplo Original) -->
-                <div class="product-card">
-                    <div class="card-image">
-                        <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA MINIMAL.png" alt="botella">
-                    </div>
-                    <div class="card-content">
-                        <h4 style="color: #bf930c;">BOTELLA MANIMAL</h4>
-                        <h5>500ml </h5>
-                        <h5>Acero inoxidable</h5>
-                        <h5>Doble pared</h5>
-                        <a 
-                            href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20BOTELLA%20MANIMAL%20de%20500ml%20que%20vi%20en%20su%20página." 
-                            class="boton-tarjeta-whatsapp" 
-                            target="_blank" 
-                            aria-label="Consultar por WhatsApp"
-                        >
-                            COTIZAR
-                        </a>
-                    </div>
-                </div>
-                <!-- FIN BOTELLA MINIMAL -->
-
-                <!-- INICIO BOTELLA DE ALUMINIO 750 ML -->
-                <div class="product-card">
-                    <div class="card-image">
-                        <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA DE ALUMINIO 750 ML.png" alt="botella">
-                    </div>
-                    <div class="card-content">
-                        <h4 style="color: #bf930c;">Botella de aluminio</h4>
-                        <h5>Tapa de Bambù </h5>
-                        <h5>arnès</h5>
-                        <br>
-                        <a 
-                            href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20Botella%20de%20aluminio%20de%20750ml%20que%20vi%20en%20su%20página." 
-                            class="boton-tarjeta-whatsapp" 
-                            target="_blank" 
-                            aria-label="Consultar por WhatsApp"
-                        >
-                           COTIZAR
-                        </a>
-                    </div>
-                </div>
-                <!-- FIN BOTELLA DE ALUMINIO 750 ML -->
-
-                <!-- INICIO BOTELLA DE ALUMINIO OCEANO -->
-                <div class="product-card">
-                    <div class="card-image">
-                        <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA DE ALUMINIO OCEANO 500 ML.png" alt="botella">
-                    </div>
-                    <div class="card-content">
-                        <h4 style="color: #bf930c;">Botella de aluminio</h4>
-                        <h5> </h5>
-                        <h5></h5>
-                        <br>
-                        <br>
-                    
-                        <a 
-                            href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20Botella%20de%20aluminio%20Océano%20de%20500ml%20que%20vi%20en%20su%20página." 
-                            class="boton-tarjeta-whatsapp" 
-                            target="_blank" 
-                            aria-label="Consultar por WhatsApp"
-                        >
-                            COTIZAR
-                        </a>
-                    </div>
-                </div>
-                <!-- FIN BOTELLA DE ALUMINIO OCEANO -->
-
-
-                 
-                <!-- FIN VASO TÉRMICO CON BASE DE CORCHO -->
+                
+        <div class="product-card" data-aos="fade-right">
+            <div class="card-image">
+                <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA MINIMAL.png" alt="botella">
             </div>
-        </div> 
+            <div class="card-content">
+                <h4 style="color: #bf930c;">BOTELLA MANIMAL</h4>
+                <h5>500ml </h5>
+                <h5>Acero inoxidable</h5>
+                <h5>Doble pared</h5>
+                <a 
+                    href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20BOTELLA%20MANIMAL%20de%20500ml%20que%20vi%20en%20su%20página." 
+                    class="boton-tarjeta-whatsapp" 
+                    target="_blank" 
+                    aria-label="Consultar por WhatsApp"
+                >
+                    COTIZAR
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card" data-aos="fade-right" data-aos-delay="200">
+            <div class="card-image">
+                <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA DE ALUMINIO 750 ML.png" alt="botella">
+            </div>
+            <div class="card-content">
+                <h4 style="color: #bf930c;">Botella de aluminio</h4>
+                <h5>Tapa de Bambù </h5>
+                <h5>arnès</h5>
+                <br>
+                <a 
+                    href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20Botella%20de%20aluminio%20de%20750ml%20que%20vi%20en%20su%20página." 
+                    class="boton-tarjeta-whatsapp" 
+                    target="_blank" 
+                    aria-label="Consultar por WhatsApp"
+                >
+                   COTIZAR
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card" data-aos="fade-right" data-aos-delay="400">
+            <div class="card-image">
+                <img src="../img envases/PACHONES, TAZAS Y VASOS/BOTELLA DE ALUMINIO OCEANO 500 ML.png" alt="botella">
+            </div>
+            <div class="card-content">
+                <h4 style="color: #bf930c;">Botella de aluminio</h4>
+                <h5> </h5>
+                <h5></h5>
+                <br>
+                <br>
+            
+                <a 
+                    href="https://wa.me/50237498681?text=Hola%2C%20estoy%20interesado%20en%20la%20Botella%20de%20aluminio%20Océano%20de%20500ml%20que%20vi%20en%20su%20página." 
+                    class="boton-tarjeta-whatsapp" 
+                    target="_blank" 
+                    aria-label="Consultar por WhatsApp"
+                >
+                    COTIZAR
+                </a>
+            </div>
+        </div>
+        </div>
     </section>
 </main>
                         
@@ -264,25 +248,22 @@
     <div class="footer-contact">
         <h3 style="color: #bf930c;">Contáctanos</h3>
         <div class="contact-items-wrapper">
-            <!-- WhatsApp -->
             <div class="contact-item">
                 <img src="../img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
                 <div class="contact-text">
                     <h4>Whatsapp</h4>
-                    <h6>5808 - 5010</h6>
+                    <h6>+502 3749 - 8681</h6>
                 </div>
             </div>
 
-            <!-- Teléfono -->
             <div class="contact-item">
                 <img src="../img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
                 <div class="contact-text">
                     <h4>Teléfono</h4>
-                    <h6>3749 - 8681</h6>
+                    <h6>+502 2232 - 3584</h6>
                 </div>
             </div>
 
-            <!-- Instagram -->
             <div class="contact-item">
                 <img src="../img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
                 <div class="contact-text">
@@ -291,10 +272,7 @@
                 </div>
             </div>
 
-            <!-- Ubicación -->
-
-
-                     <div class="contact-item">
+            <div class="contact-item">
                 <img src="../img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
                 <div class="contact-text">
                     <p>11 Avenida</p>
@@ -302,13 +280,16 @@
                     <p> Guatemala</p>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Controla qué tan rápido se desliza y se aclara (en milisegundos)
+    once: true // Importante: Asegura que la animación solo se ejecute una vez
+  });
+</script>
 </body>
 </html>

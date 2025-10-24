@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promociones - Mic.Mas</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="script.js" defer></script>
   <style>
         .indice-botones a {
@@ -149,7 +150,7 @@
                 <h2 class="section-title">Promociones Especiales</h2>
                 <p class="section-subtitle">Aprovecha nuestras ofertas por tiempo limitado.</p>
                 <div class="promo-grid">
-                    <div class="product-card">
+                    <div class="product-card" data-aos="fade-right">
                         <div class="card-image">
                             <img src="https://via.placeholder.com/400x300.png?text=Promo+de+Tazas" alt="Promoción de Tazas">
                         </div>
@@ -158,7 +159,7 @@
                             <p>Personaliza tus tazas con un 20% de descuento. ¡Perfecto para regalos!</p>
                         </div>
                     </div>
-                    <div class="product-card">
+                    <div class="product-card" data-aos="fade-right" data-aos-delay="100">
                         <div class="card-image">
                             <img src="https://via.placeholder.com/400x300.png?text=Promo+de+Playeras" alt="Promoción de Playeras">
                         </div>
@@ -172,19 +173,56 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-contact">
-                <h3>Contáctanos</h3>
-                <p>📞 4235 - 7999</p>
-                <p>📱 3749 - 8681</p>
-                <p>📍 11 avenida 14-10 zona 1, Apto. B</p>
+  <footer>
+    <div class="footer-contact">
+        <h3 style="color: #bf930c;">Contáctanos</h3>
+        <div class="contact-items-wrapper">
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-24.png" alt="WhatsApp Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Whatsapp</h4>
+                    <h6>+502 3749 - 8681</h6>
+                </div>
             </div>
-            <div class="footer-social">
-                <h3>Síguenos</h3>
-                <img src="https://via.placeholder.com/150.png?text=Codigo+QR" alt="QR Code" class="qr-code">
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-25.png" alt="Phone Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Teléfono</h4>
+                    <h6>+502 2232 - 3584</h6>
+                </div>
             </div>
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-27.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <h4>Instagram</h4>
+                    <h6>micmasdetail</h6>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <img src="img/REDES SOCIALES/iconos-26.png" alt="Instagram Icon" class="contact-icon">
+                <div class="contact-text">
+                    <p>11 Avenida</p>
+                    <p> 14-10 z1.</p>
+                    <p> Guatemala</p>
+                </div>
+            </div>
+
+
+
+
+
         </div>
-    </footer>
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 </body>
 </html>
